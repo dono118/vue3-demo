@@ -2,28 +2,40 @@
   <h1>个人信息</h1>
   <h2>姓名：{{name}}</h2>
   <h2>年龄：{{age}}</h2>
-  <button @click="sayHello">自我介绍</button>
+  <h2>职位：{{job.type}}</h2>
+  <h2>薪水：{{job.salary}}</h2>
+  <button @click="changeInfo">修改个人信息</button>
 </template>
 
 <script>
+import { ref } from "vue";
 
 export default {
   name: 'App',
   setup() {
     // 数据
-    let name = '张三'
-    let age = 18
+    let name = ref('张三')
+    let age = ref(24)
+    let job = ref({
+      type: '前端工程师',
+      salary: '10k'
+    })
 
     // 方法
-    function sayHello() {
-      alert(`我叫${name}，今年${age}岁了，你好啊！`)
+    function changeInfo() {
+      name.value = '李四'
+      age.value = 28
+      // console.log(job.value);
+      job.value.type = 'UI设计师'
+      job.value.salary = '20k'
     }
 
     // 返回一个对象
     return {
       name,
       age,
-      sayHello
+      job,
+      changeInfo
     }
   }
 }
