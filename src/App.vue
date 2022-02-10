@@ -1,5 +1,9 @@
 <template>
-  <Demo @hello="sayHello" msg="Hi" school="尚硅谷" />
+  <Demo @hello="sayHello" msg="Hi" school="尚硅谷">
+    <template #haha>
+      <span>哈哈哈</span>
+    </template>
+  </Demo>
 </template>
 
 <script>
